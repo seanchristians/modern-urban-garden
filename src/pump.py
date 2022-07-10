@@ -1,4 +1,4 @@
-import gpiozero, os, time
+import os, time
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from devices import pump
