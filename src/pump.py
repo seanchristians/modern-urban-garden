@@ -1,12 +1,14 @@
-import os, time
-
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+import time
 from devices import pump
+
+amount = 121.970 # Pumping time from calibration program
 
 start = time.time()
 
-print(time.strftime("%Y-%m-%d %H:%M:%S"), 0.0)  # Redirect to pump.log
+print("Pump activated at", time.strftime("%Y-%m-%d %H:%M:%S"), "for", str(amount) + "s")  # Redirect to pump.log
 
 pump.on()
-time.sleep(121.970)
+time.sleep(amount)
 pump.off()
+
+print("Pump deactivated at", time.strftime("%Y-%m-%d %H:%M:%S") + ".", "Active for", str(round(time.time() - start, 2)) + "s")
