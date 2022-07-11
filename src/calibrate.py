@@ -1,7 +1,7 @@
-import time, signal, syslog
+import time, signal, processlog
 from devices import pump, button
 
-syslog.log("Started calibration")
+processlog.log("Started calibration")
 
 
 def calibrator():
@@ -14,7 +14,7 @@ def calibrator():
 
         diff = time.time() - start
 
-        syslog.log("Calibrated time", diff)
+        processlog.log("Calibrated time", diff)
         print(diff)
         yield diff
 
